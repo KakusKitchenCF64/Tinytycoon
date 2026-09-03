@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.next/
+out/
+.env
+.env.local
+*.log
+.DS_Store
+coverage/
+data.json
+data.json.tmp

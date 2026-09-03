@@ -1,0 +1,23 @@
+{
+  "name": "tiny-tycoons",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tiny Tycoons - single-file marketplace app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "stripe": "^16.12.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

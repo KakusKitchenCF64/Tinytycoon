@@ -1,0 +1,1894 @@
+# PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+# TINY TYCOONS
+
+## A Marketplace for Young Creators and Student Entrepreneurs
+
+**Document Version:** 3.0 – Final
+**Initial Market:** United Kingdom
+**Future Market:** Global Expansion
+**Platform Type:** Custom Multi-Vendor E-Commerce Marketplace
+**Development Model:** Fully Custom-Built Platform
+**Payment Infrastructure:** Stripe / Stripe Connect
+**Initial Platform:** Responsive Web Application
+**Primary Sellers:** Children and Students under Parent/Guardian Supervision; Schools, Institutions, and Organizations
+**Primary Buyers:** General Public
+
+---
+
+# 1. Executive Summary
+
+Tiny Tycoons is a UK-first multi-vendor e-commerce marketplace designed to enable children and students to showcase and sell products they have created.
+
+The platform provides young creators with an opportunity to experience entrepreneurship while maintaining strong privacy, safety, parental supervision, and institutional oversight.
+
+Tiny Tycoons supports two primary seller models:
+
+1. **Individual Young Creator** – A child or student selling products through a public store under parent or guardian supervision where required.
+
+2. **Organization / Institution** – A school, college, university, educational institution, youth organization, student club, charity, or approved organization managing products created by its students or young members.
+
+The marketplace will be fully custom-built. No third-party marketplace platform such as Sharetribe will form part of the core marketplace infrastructure.
+
+Stripe and Stripe Connect are intended to provide payment processing, connected-account onboarding where applicable, and marketplace payout functionality.
+
+Tiny Tycoons follows one fundamental privacy principle:
+
+**The world sees the creator's brand. Tiny Tycoons protects the person behind it.**
+
+For example:
+
+Private Creator Name: Saban
+
+Public Selling Name: CRK Jewelers
+
+A customer browsing the marketplace will see:
+
+**CRK Jewelers**
+
+The customer's public experience will not expose the child's legal name or other private personal information by default.
+
+Tiny Tycoons will launch initially in the United Kingdom. Its architecture will be designed to support future international expansion.
+
+---
+
+# 2. Product Vision
+
+Tiny Tycoons aims to become a trusted global marketplace dedicated to the next generation of creators and entrepreneurs.
+
+The platform enables young people to turn their creativity into practical entrepreneurial experiences.
+
+Young creators can:
+
+* Create original products.
+* Develop their own brand.
+* Create a digital storefront.
+* Learn product presentation.
+* Understand pricing.
+* Experience inventory management.
+* Receive real customer orders.
+* Learn fulfilment processes.
+* Understand customer expectations.
+* Develop entrepreneurial confidence.
+
+Schools and organizations can use Tiny Tycoons to showcase and sell products created through student projects, entrepreneurship programs, creative activities, and innovation initiatives.
+
+Customers gain access to a marketplace of unique products while supporting young creativity and entrepreneurship.
+
+---
+
+# 3. Core Value Proposition
+
+Tiny Tycoons combines:
+
+**Young Creativity**
+
+*
+
+**Responsible Adult and Institutional Supervision**
+
+*
+
+**Modern E-Commerce**
+
+*
+
+**Entrepreneurial Learning**
+
+Tiny Tycoons is not a general marketplace for products aimed at children.
+
+It is a marketplace for **products created by children and students**.
+
+---
+
+# 4. Core Privacy Model
+
+Tiny Tycoons will maintain a strict distinction between:
+
+## Public Marketplace Identity
+
+and
+
+## Private Legal Identity
+
+Example:
+
+### Private Information
+
+Creator Legal Name: Saban
+Date of Birth: Private
+Parent/Guardian Name: Private
+Guardian Contact Information: Private
+Residential Address: Private
+Verification Information: Private
+Financial Information: Private
+
+### Public Information
+
+Selling Name: CRK Jewelers
+Store Logo: Public
+Store Banner: Public
+Store Description: Public
+Products: Public
+Store Ratings: Public
+Store Reviews: Public
+
+Customers will interact with the public store:
+
+**CRK Jewelers**
+
+The creator's private identity must not be exposed through public profiles, products, search results, messages, reviews, URLs, API responses available to unauthenticated users, or other public surfaces.
+
+Where applicable UK laws require certain legal seller information to be provided to customers, Tiny Tycoons will implement appropriate disclosure mechanisms involving the legally responsible adult or organization.
+
+---
+
+# 5. User Roles
+
+Tiny Tycoons will support six primary roles.
+
+## 5.1 Guest
+
+A non-authenticated visitor.
+
+Guests can:
+
+* Browse products.
+* Search products.
+* Filter products.
+* View categories.
+* View product details.
+* View public storefronts.
+* View ratings and reviews.
+* Register.
+* Log in.
+
+---
+
+## 5.2 Customer / Buyer
+
+Customers can:
+
+* Create an account.
+* Manage their profile.
+* Browse products.
+* Search and filter products.
+* Add products to cart.
+* Create wishlists.
+* Complete checkout.
+* Make payments.
+* View orders.
+* Track shipments.
+* Request returns.
+* Receive refunds.
+* Review eligible purchases.
+* Contact stores through controlled communication.
+
+---
+
+## 5.3 Individual Young Creator
+
+A child or student who creates products.
+
+The creator operates through a public Selling Name.
+
+For minors, the account will operate under appropriate parent or guardian supervision.
+
+The creator's private identity is not displayed publicly by default.
+
+---
+
+## 5.4 Parent / Guardian
+
+The responsible adult associated with a minor creator.
+
+The guardian may be responsible for:
+
+* Providing consent.
+* Completing required verification.
+* Managing account permissions.
+* Approving products.
+* Managing financial onboarding.
+* Managing payouts.
+* Supervising orders.
+* Handling returns.
+* Handling refunds.
+* Supervising customer communication.
+* Managing sensitive account settings.
+
+---
+
+## 5.5 Organization / Institution
+
+A verified organization representing student creators.
+
+Examples include:
+
+* Schools.
+* Colleges.
+* Universities.
+* Educational institutions.
+* Youth organizations.
+* Student clubs.
+* Charities.
+* Non-profit organizations.
+* Professional student chapters.
+* Approved educational organizations.
+
+The organization account is managed by an authorized representative.
+
+---
+
+## 5.6 Platform Administrator
+
+Administrators manage the entire marketplace.
+
+Admin responsibilities include:
+
+* User management.
+* Seller verification.
+* Guardian verification status.
+* Organization verification.
+* Product moderation.
+* Category management.
+* Order oversight.
+* Payment oversight.
+* Refund oversight.
+* Dispute management.
+* Reports.
+* Content moderation.
+* Safeguarding.
+* Marketplace analytics.
+
+---
+
+# 6. Registration Architecture
+
+Tiny Tycoons will provide different registration pathways.
+
+## Buyer Registration
+
+For customers purchasing products.
+
+## Seller Registration
+
+Seller registration will present two options:
+
+### Individual Young Creator
+
+"For young creators building their own brand with parent or guardian supervision where required."
+
+### School / Institution / Organization
+
+"For organizations showcasing and selling products created by students or young members."
+
+---
+
+# 7. Individual Creator Registration
+
+Proposed workflow:
+
+Create Seller Account
+
+↓
+
+Select "Individual Young Creator"
+
+↓
+
+Enter Date of Birth / Age Verification Information
+
+↓
+
+Enter Private Creator Information
+
+↓
+
+Create Public Selling Name
+
+↓
+
+Enter Parent / Guardian Information
+
+↓
+
+Guardian Consent
+
+↓
+
+Guardian Verification where required
+
+↓
+
+Email / Account Verification
+
+↓
+
+Stripe Connected Account Onboarding
+
+↓
+
+Platform Review
+
+↓
+
+Account Approved
+
+↓
+
+Seller Dashboard Activated
+
+↓
+
+Storefront Activated
+
+The frontend must clearly indicate whether each field is:
+
+**Public**
+
+**Private**
+
+or
+
+**Required for Verification**
+
+---
+
+# 8. Public Selling Name
+
+Every seller will operate under a public Selling Name.
+
+Example:
+
+**CRK Jewelers**
+
+The Selling Name appears on:
+
+* Product cards.
+* Product pages.
+* Search results.
+* Storefront.
+* Reviews.
+* Order information where appropriate.
+* Customer communication.
+* Recommendations.
+
+The Selling Name will be subject to platform moderation.
+
+Tiny Tycoons may reject names that:
+
+* Contain inappropriate content.
+* Impersonate another person.
+* Misrepresent an organization.
+* Violate intellectual property rights.
+* Expose personal information.
+* Contain misleading claims.
+
+---
+
+# 9. Parent / Guardian System
+
+A guardian must have a secure relationship with the supervised creator account.
+
+Recommended architecture:
+
+**Creator Account**
+
+↓
+
+**Guardian Account / Guardian Relationship**
+
+↓
+
+**Public Store**
+
+↓
+
+**Products**
+
+↓
+
+**Orders**
+
+↓
+
+**Stripe Connected Account**
+
+↓
+
+**Payout Method**
+
+The database should model the guardian as a distinct entity or relationship rather than simply storing all guardian information directly inside the creator's public profile.
+
+This allows future support for:
+
+* One guardian supervising multiple creator accounts.
+* Multiple authorized guardians where appropriate.
+* Guardian verification history.
+* Consent records.
+* Permission management.
+* Account transfer processes.
+* Creator reaching adulthood.
+
+---
+
+# 10. Guardian Consent
+
+The platform must maintain records of guardian consent where required.
+
+Consent records may include:
+
+* Guardian ID.
+* Creator ID.
+* Consent type.
+* Consent version.
+* Date and time.
+* IP address where legally appropriate.
+* Terms version.
+* Privacy notice version.
+* Consent status.
+* Revocation status.
+
+Consent history should be auditable.
+
+---
+
+# 11. Organization Registration
+
+Proposed workflow:
+
+Create Seller Account
+
+↓
+
+Select "School / Institution / Organization"
+
+↓
+
+Enter Organization Information
+
+↓
+
+Create Public Store Name
+
+↓
+
+Enter Authorized Representative Information
+
+↓
+
+Verify Representative
+
+↓
+
+Submit Organization Verification
+
+↓
+
+Complete Stripe Connect Onboarding
+
+↓
+
+Platform Review
+
+↓
+
+Organization Approved
+
+↓
+
+Organization Dashboard Activated
+
+↓
+
+Storefront Activated
+
+Organizations may eventually support multiple authorized users.
+
+Potential roles:
+
+* Organization Owner.
+* Administrator.
+* Teacher / Coordinator.
+* Product Manager.
+* Order Manager.
+* Finance Manager.
+
+Role-Based Access Control should be used.
+
+---
+
+# 12. Public Storefront
+
+Every approved seller receives a storefront.
+
+Example:
+
+# CRK Jewelers
+
+The storefront may contain:
+
+* Store logo.
+* Store banner.
+* Selling Name.
+* Store description.
+* Product catalogue.
+* Ratings.
+* Reviews.
+* Store policies.
+* Verified status where applicable.
+
+The storefront must not expose the private identity of a child creator.
+
+---
+
+# 13. Product Categories
+
+Initial categories may include:
+
+* Art & Paintings.
+* Handmade Crafts.
+* Jewellery & Accessories.
+* Books & Comics.
+* Stationery.
+* Greeting Cards.
+* Home Décor.
+* Fashion Accessories.
+* Approved Textiles.
+* Educational Creations.
+* Sustainable Products.
+* Approved 3D-Printed Creations.
+
+Categories will be managed through the Admin Dashboard.
+
+---
+
+# 14. Restricted Products
+
+Tiny Tycoons should initially restrict higher-risk products.
+
+Potential restricted or prohibited categories include:
+
+* Food.
+* Beverages.
+* Cosmetics.
+* Electrical devices.
+* Batteries.
+* Chemicals.
+* Medicines.
+* Medical devices.
+* Age-restricted products.
+* Weapons.
+* Weapon-like products.
+* Unsafe toys.
+* Counterfeit products.
+* Products infringing intellectual property.
+
+Certain categories may later be introduced following appropriate compliance and safety processes.
+
+---
+
+# 15. Product Creation
+
+Sellers can create listings containing:
+
+* Product title.
+* Description.
+* Category.
+* Subcategory.
+* Images.
+* Price.
+* Quantity.
+* SKU.
+* Materials.
+* Dimensions.
+* Weight.
+* Colour.
+* Variants.
+* Processing time.
+* Estimated shipping time.
+* Personalization options.
+* Safety information where required.
+* Return eligibility.
+
+---
+
+# 16. Product Approval Workflow
+
+Initial marketplace products should undergo moderation.
+
+Workflow:
+
+Seller Creates Product
+
+↓
+
+Product Saved as Draft
+
+↓
+
+Guardian Approval where required
+
+↓
+
+Submitted to Tiny Tycoons
+
+↓
+
+Admin Moderation
+
+↓
+
+Approved / Changes Requested / Rejected
+
+↓
+
+Approved Product Published
+
+Administrators can later suspend or remove listings.
+
+---
+
+# 17. Product Page
+
+Product pages display:
+
+* Product images.
+* Product title.
+* Price.
+* Description.
+* Variants.
+* Available quantity.
+* Materials.
+* Shipping estimate.
+* Return information.
+* Ratings.
+* Reviews.
+* Add to Cart.
+* Buy Now.
+
+Seller information appears as:
+
+**Sold by CRK Jewelers**
+
+Users can select:
+
+**Visit Store**
+
+The creator's legal name is not displayed.
+
+---
+
+# 18. Search and Discovery
+
+Customers can search by:
+
+* Product name.
+* Product category.
+* Selling Name.
+* Keywords.
+
+Filters may include:
+
+* Category.
+* Price.
+* Rating.
+* Availability.
+* Newest.
+* Popularity.
+* Handmade.
+* Sustainable.
+* Personalized.
+
+---
+
+# 19. Shopping Cart
+
+The cart supports:
+
+* Multiple products.
+* Quantity changes.
+* Product removal.
+* Multiple sellers.
+* Shipping estimates.
+* Promotional codes.
+* Order totals.
+
+The platform must support multi-vendor cart logic.
+
+Orders may need to be split internally by seller for fulfilment and settlement purposes.
+
+---
+
+# 20. Checkout
+
+Checkout flow:
+
+Cart
+
+↓
+
+Customer Details
+
+↓
+
+Delivery Address
+
+↓
+
+Shipping Options
+
+↓
+
+Order Review
+
+↓
+
+Stripe Payment
+
+↓
+
+Payment Confirmation
+
+↓
+
+Order Created
+
+↓
+
+Seller Notification
+
+↓
+
+Customer Confirmation
+
+Customers should be informed when items from different sellers may arrive separately.
+
+---
+
+# 21. Stripe Payment Architecture
+
+Tiny Tycoons will use Stripe for payment processing.
+
+Stripe Connect is the intended solution for marketplace seller onboarding and payouts.
+
+Conceptual flow:
+
+**Customer**
+
+↓
+
+**Stripe Payment**
+
+↓
+
+**Tiny Tycoons Marketplace Transaction**
+
+↓
+
+**Platform Commission**
+
+*
+
+**Seller Share**
+
+↓
+
+**Eligible Connected Seller Account**
+
+↓
+
+**Seller Payout**
+
+For minor creator accounts, the legally eligible parent/guardian or responsible account holder will complete applicable financial verification and payout onboarding according to Stripe's requirements.
+
+For organization accounts, the appropriate organization or eligible legal entity will complete Stripe onboarding.
+
+Tiny Tycoons should avoid storing raw card information.
+
+---
+
+# 22. Platform Commission
+
+Tiny Tycoons may charge a commission on each successful transaction.
+
+Example:
+
+Product Sale: £50
+
+Platform Commission: 10%
+
+Gross Platform Share: £5
+
+Gross Seller Share: £45
+
+Actual settlement may be affected by:
+
+* Stripe processing fees.
+* Refunds.
+* Chargebacks.
+* Taxes.
+* Shipping arrangements.
+* Other applicable fees.
+
+Commission rates should be configurable by administrators rather than hardcoded.
+
+---
+
+# 23. Order Architecture
+
+Because Tiny Tycoons is multi-vendor, the system should distinguish between:
+
+**Customer Order**
+
+and
+
+**Seller Order**
+
+Example:
+
+Customer purchases:
+
+Product A – CRK Jewelers
+
+Product B – Young Canvas
+
+The customer sees one checkout.
+
+Internally:
+
+Master Order #10001
+
+↓
+
+Seller Order #10001-A – CRK Jewelers
+
+Seller Order #10001-B – Young Canvas
+
+Each seller manages only their portion of the order.
+
+---
+
+# 24. Order Status
+
+Potential statuses include:
+
+* Payment Pending.
+* Payment Confirmed.
+* Processing.
+* Ready for Dispatch.
+* Shipped.
+* Delivered.
+* Completed.
+* Cancellation Requested.
+* Cancelled.
+* Return Requested.
+* Returned.
+* Partially Refunded.
+* Refunded.
+* Disputed.
+
+---
+
+# 25. Shipping
+
+MVP shipping may initially support seller-managed shipping.
+
+Sellers can:
+
+* Define processing times.
+* Define shipping options.
+* Enter tracking numbers.
+* Mark orders as shipped.
+
+Future integrations may include major UK shipping providers.
+
+Shipping architecture should support future international shipping.
+
+---
+
+# 26. Returns and Refunds
+
+Customers can:
+
+* Request eligible returns.
+* Select a return reason.
+* Provide additional information.
+* Upload supporting images where appropriate.
+* Track return status.
+* Receive eligible refunds.
+
+The system must support:
+
+* Full refunds.
+* Partial refunds.
+* Item-level refunds.
+* Order-level refunds.
+
+UK consumer rights and applicable exceptions must be reflected in platform policies and workflows.
+
+---
+
+# 27. Reviews
+
+Only eligible verified purchasers can review products.
+
+Reviews may contain:
+
+* Star rating.
+* Written feedback.
+* Product images where permitted.
+
+Reviews must be moderated.
+
+Reviews should relate to the product or transaction and must not expose or attempt to identify minor creators.
+
+---
+
+# 28. Messaging
+
+Communication involving minor-run stores requires controlled architecture.
+
+Recommended flow:
+
+Customer
+
+↓
+
+Tiny Tycoons Messaging System
+
+↓
+
+Store Identity
+
+↓
+
+Guardian / Authorized Responsible User
+
+Customers should not receive direct access to a child's:
+
+* Personal email.
+* Phone number.
+* Social media.
+* Home address.
+* Private identity.
+
+Messages should be logged for moderation and safeguarding purposes, subject to appropriate privacy and retention policies.
+
+---
+
+# 29. Customer Dashboard
+
+Customer dashboard includes:
+
+* Profile.
+* Orders.
+* Tracking.
+* Returns.
+* Refunds.
+* Wishlist.
+* Reviews.
+* Addresses.
+* Notifications.
+* Account settings.
+
+---
+
+# 30. Individual Seller Dashboard
+
+The dashboard includes:
+
+### Overview
+
+* Revenue.
+* Orders.
+* Products.
+* Store performance.
+
+### Products
+
+* Add Product.
+* Drafts.
+* Pending Approval.
+* Active.
+* Rejected.
+* Out of Stock.
+
+### Orders
+
+* New.
+* Processing.
+* Shipped.
+* Completed.
+* Returned.
+
+### Store
+
+* Selling Name.
+* Logo.
+* Banner.
+* Description.
+* Policies.
+
+### Finance
+
+* Sales.
+* Platform fees.
+* Refunds.
+* Payouts.
+* Transaction history.
+
+### Guardian Controls
+
+* Approvals.
+* Permissions.
+* Financial settings.
+* Account supervision.
+
+---
+
+# 31. Organization Dashboard
+
+Organization dashboard includes:
+
+* Overview.
+* Store management.
+* Products.
+* Orders.
+* Inventory.
+* Shipping.
+* Returns.
+* Refunds.
+* Payouts.
+* Reports.
+* Analytics.
+* Authorized users.
+
+Future versions may allow organizations to internally associate products with student creators without publicly exposing those identities.
+
+---
+
+# 32. Admin Dashboard
+
+The Admin Dashboard provides complete marketplace management.
+
+Modules include:
+
+### Users
+
+* Customers.
+* Creators.
+* Guardians.
+* Organizations.
+
+### Verification
+
+* Guardian status.
+* Organization verification.
+* Seller verification.
+
+### Products
+
+* Pending.
+* Approved.
+* Rejected.
+* Reported.
+* Suspended.
+
+### Orders
+
+* Marketplace-wide order visibility.
+* Dispute escalation.
+
+### Payments
+
+* Transactions.
+* Commissions.
+* Refunds.
+* Payout status.
+
+### Moderation
+
+* Products.
+* Reviews.
+* Messages where legally and operationally appropriate.
+* Store profiles.
+* Reports.
+
+### Safety
+
+* User reports.
+* Safeguarding incidents.
+* Suspicious activity.
+* Account suspensions.
+
+### Analytics
+
+* GMV.
+* Revenue.
+* Orders.
+* Active sellers.
+* Active customers.
+* Top categories.
+* Refund rates.
+* Conversion rates.
+
+---
+
+# 33. Recommended Database Architecture
+
+Tiny Tycoons should use a relational database architecture.
+
+Recommended core entities:
+
+* Users.
+* Roles.
+* CreatorProfiles.
+* Guardians.
+* GuardianCreatorRelationships.
+* GuardianConsents.
+* Organizations.
+* OrganizationUsers.
+* Stores.
+* Products.
+* ProductImages.
+* Categories.
+* ProductVariants.
+* Inventory.
+* Customers.
+* Addresses.
+* Carts.
+* CartItems.
+* Orders.
+* SellerOrders.
+* OrderItems.
+* Payments.
+* Transactions.
+* PlatformCommissions.
+* StripeConnectedAccounts.
+* Payouts.
+* Shipments.
+* Returns.
+* Refunds.
+* Reviews.
+* Wishlists.
+* Messages.
+* Notifications.
+* VerificationRecords.
+* Reports.
+* AuditLogs.
+
+Private identity data and public marketplace data should be logically separated with strict authorization controls.
+
+---
+
+# 34. Recommended Technical Stack
+
+The final stack should be selected based on development-team expertise, but a suitable architecture is:
+
+### Frontend
+
+Next.js / React
+
+TypeScript
+
+Responsive Web Design
+
+### Backend
+
+Node.js
+
+NestJS or Express
+
+TypeScript
+
+REST API or GraphQL
+
+### Database
+
+PostgreSQL
+
+### ORM
+
+Prisma or TypeORM
+
+### Cache
+
+Redis
+
+### Payments
+
+Stripe
+
+Stripe Connect
+
+### File Storage
+
+AWS S3 or equivalent object storage
+
+### CDN
+
+CloudFront or equivalent
+
+### Email
+
+Transactional email provider
+
+### Infrastructure
+
+AWS, Azure, or Google Cloud
+
+### Monitoring
+
+Centralized logging
+
+Application monitoring
+
+Error tracking
+
+---
+
+# 35. API Architecture
+
+Core API modules should include:
+
+* Authentication API.
+* User API.
+* Creator API.
+* Guardian API.
+* Organization API.
+* Store API.
+* Product API.
+* Category API.
+* Cart API.
+* Checkout API.
+* Order API.
+* Payment API.
+* Stripe Webhook API.
+* Payout API.
+* Shipping API.
+* Return API.
+* Refund API.
+* Review API.
+* Messaging API.
+* Notification API.
+* Admin API.
+* Moderation API.
+
+All endpoints must implement appropriate authentication and authorization.
+
+---
+
+# 36. Authentication and Authorization
+
+Tiny Tycoons should implement secure authentication.
+
+Features include:
+
+* Email verification.
+* Secure login.
+* Password reset.
+* Session management.
+* Role-Based Access Control.
+* Rate limiting.
+* Brute-force protection.
+
+Roles may include:
+
+CUSTOMER
+
+CREATOR
+
+GUARDIAN
+
+ORGANIZATION_OWNER
+
+ORGANIZATION_ADMIN
+
+ADMIN
+
+SUPER_ADMIN
+
+Multi-factor authentication should be considered mandatory for platform administrators and high-risk financial actions.
+
+---
+
+# 37. Security
+
+Security requirements include:
+
+* HTTPS everywhere.
+* Secure password hashing.
+* Input validation.
+* Output encoding.
+* CSRF protection where applicable.
+* XSS protection.
+* SQL injection prevention.
+* Rate limiting.
+* Secure cookies.
+* API authorization.
+* File upload validation.
+* Malware scanning where appropriate.
+* Audit logs.
+* Encryption of sensitive data.
+* Secret management.
+* Stripe webhook signature verification.
+
+Security testing should be performed before production launch.
+
+---
+
+# 38. UK Privacy and Child Protection
+
+Tiny Tycoons must be designed with UK privacy and child-safety requirements in mind.
+
+Relevant considerations include:
+
+* UK GDPR.
+* Data Protection Act 2018.
+* ICO Children's Code / Age Appropriate Design Code.
+* Data minimization.
+* Privacy by default.
+* Appropriate guardian involvement.
+* Transparent privacy notices.
+* Appropriate data retention.
+* Appropriate deletion mechanisms.
+* Restricted communication.
+* Safeguarding procedures.
+
+A Data Protection Impact Assessment should be completed before launch where required or appropriate.
+
+Qualified UK legal and privacy professionals should review the final platform architecture and policies.
+
+---
+
+# 39. UK E-Commerce Compliance
+
+Before launch, Tiny Tycoons should address applicable requirements relating to:
+
+* Online and distance selling.
+* Consumer contracts.
+* Consumer rights.
+* Returns.
+* Refunds.
+* Product descriptions.
+* Pricing transparency.
+* Delivery information.
+* Product safety.
+* Trader information.
+* Digital marketplace obligations.
+* Tax reporting obligations.
+
+The exact legal seller relationship between Tiny Tycoons, guardians, creators, and organizations must be formally established.
+
+---
+
+# 40. Intellectual Property
+
+Creators should retain ownership of their original intellectual property unless otherwise agreed.
+
+Tiny Tycoons receives an appropriate licence to:
+
+* Display listings.
+* Display images.
+* Promote products.
+* Advertise marketplace content.
+
+Sellers must confirm they have the rights required to sell listed products.
+
+Tiny Tycoons should implement:
+
+* IP reporting.
+* Takedown requests.
+* Seller warnings.
+* Repeat infringement policies.
+
+---
+
+# 41. Legal Documents Required
+
+Before UK launch, professionally reviewed documents should include:
+
+* Platform Terms and Conditions.
+* Buyer Terms.
+* Individual Seller Agreement.
+* Parent / Guardian Agreement.
+* Guardian Consent.
+* Organization Seller Agreement.
+* Privacy Policy.
+* Children's Privacy Notice.
+* Cookie Policy.
+* Returns and Refund Policy.
+* Shipping Policy.
+* Prohibited Products Policy.
+* Restricted Products Policy.
+* Product Safety Policy.
+* Intellectual Property Policy.
+* Acceptable Use Policy.
+* Communication Policy.
+* Safeguarding Policy.
+
+---
+
+# 42. Notifications
+
+Tiny Tycoons should initially support:
+
+* Email notifications.
+* In-app notifications.
+
+Events include:
+
+* Account registration.
+* Email verification.
+* Seller approved.
+* Verification required.
+* Product submitted.
+* Product approved.
+* Product rejected.
+* New order.
+* Order shipped.
+* Order delivered.
+* Return requested.
+* Refund issued.
+* Payout processed.
+
+Push notifications may be introduced with future mobile applications.
+
+---
+
+# 43. MVP Scope
+
+The UK MVP should include:
+
+* Responsive website.
+* Homepage.
+* Product catalogue.
+* Categories.
+* Search.
+* Filters.
+* Product pages.
+* Public storefronts.
+* Customer accounts.
+* Individual creator onboarding.
+* Guardian relationship and consent.
+* Organization onboarding.
+* Seller verification.
+* Product creation.
+* Product moderation.
+* Inventory.
+* Shopping cart.
+* Multi-vendor order architecture.
+* Checkout.
+* Stripe payment integration.
+* Stripe Connect.
+* Platform commissions.
+* Seller payouts.
+* Orders.
+* Basic shipping.
+* Returns.
+* Refunds.
+* Reviews.
+* Wishlist.
+* Controlled customer-seller communication.
+* Customer dashboard.
+* Seller dashboard.
+* Organization dashboard.
+* Admin dashboard.
+* Email notifications.
+* Privacy controls.
+* Audit logging.
+* Basic marketplace analytics.
+
+---
+
+# 44. Features Outside Initial MVP
+
+The following can be considered after successful UK MVP validation:
+
+* Native Android application.
+* Native iOS application.
+* Multi-currency.
+* Multi-language.
+* International sellers.
+* International shipping.
+* AI recommendations.
+* Advanced personalization.
+* AI-assisted product descriptions.
+* Advanced seller analytics.
+* Entrepreneurship learning modules.
+* Student competitions.
+* Achievement badges.
+* Certificates.
+* Mentorship programs.
+* Corporate sponsorships.
+* Premium seller subscriptions.
+* Sponsored products.
+* School entrepreneurship programs.
+
+---
+
+# 45. Global Expansion Architecture
+
+Although Tiny Tycoons launches in the UK, the architecture should support future configuration by country.
+
+Country-specific configuration may include:
+
+* Currency.
+* Language.
+* Tax.
+* Payment providers.
+* Shipping providers.
+* Seller eligibility.
+* Minimum age requirements.
+* Guardian requirements.
+* Verification requirements.
+* Product restrictions.
+* Legal documents.
+* Privacy requirements.
+
+International expansion must be performed country by country following appropriate legal review.
+
+---
+
+# 46. Success Metrics
+
+Core marketplace metrics:
+
+* Registered buyers.
+* Registered creators.
+* Verified guardians.
+* Registered organizations.
+* Approved organizations.
+* Active storefronts.
+* Active products.
+* Monthly active sellers.
+* Monthly active customers.
+* Gross Merchandise Value.
+* Platform revenue.
+* Average Order Value.
+* Conversion rate.
+* Repeat purchase rate.
+* Seller retention.
+* Customer retention.
+* Refund rate.
+* Return rate.
+
+Safety metrics:
+
+* Reported products.
+* Reported stores.
+* Policy violations.
+* Suspended accounts.
+* Fraud attempts.
+* Safeguarding incidents.
+* Average moderation response time.
+
+---
+
+# 47. Core User Journey – Individual Creator
+
+Young Creator / Guardian Starts Registration
+
+↓
+
+Individual Creator Selected
+
+↓
+
+Private Creator Information Entered
+
+↓
+
+Public Selling Name Created
+
+↓
+
+Guardian Relationship Established
+
+↓
+
+Guardian Consent Recorded
+
+↓
+
+Verification Completed
+
+↓
+
+Stripe Connect Onboarding
+
+↓
+
+Tiny Tycoons Approval
+
+↓
+
+Store Activated
+
+↓
+
+Product Created
+
+↓
+
+Guardian Approval where required
+
+↓
+
+Tiny Tycoons Product Moderation
+
+↓
+
+Product Published
+
+↓
+
+Customer Purchases
+
+↓
+
+Order Created
+
+↓
+
+Seller Fulfils Order
+
+↓
+
+Product Delivered
+
+↓
+
+Seller Payout Processed
+
+↓
+
+Customer Reviews Product
+
+---
+
+# 48. Core User Journey – Organization
+
+Organization Registers
+
+↓
+
+Authorized Representative Added
+
+↓
+
+Organization Verification
+
+↓
+
+Public Store Created
+
+↓
+
+Stripe Connect Onboarding
+
+↓
+
+Tiny Tycoons Approval
+
+↓
+
+Products Added
+
+↓
+
+Product Moderation
+
+↓
+
+Products Published
+
+↓
+
+Customer Purchases
+
+↓
+
+Organization Fulfils Order
+
+↓
+
+Product Delivered
+
+↓
+
+Organization Receives Payout
+
+---
+
+# 49. Core User Journey – Customer
+
+Customer Visits Tiny Tycoons
+
+↓
+
+Browses Marketplace
+
+↓
+
+Discovers Product
+
+↓
+
+Views Product
+
+↓
+
+Views Public Store
+
+↓
+
+Adds Product to Cart
+
+↓
+
+Completes Checkout
+
+↓
+
+Pays Securely
+
+↓
+
+Receives Order Confirmation
+
+↓
+
+Tracks Order
+
+↓
+
+Receives Product
+
+↓
+
+Leaves Review
+
+---
+
+# 50. Development Phases
+
+## Phase 1 – Foundation
+
+* Project architecture.
+* Database.
+* Authentication.
+* Role-Based Access Control.
+* User accounts.
+* Admin foundation.
+
+## Phase 2 – Seller Ecosystem
+
+* Individual onboarding.
+* Guardian system.
+* Organization onboarding.
+* Storefront creation.
+* Verification workflows.
+
+## Phase 3 – Marketplace
+
+* Products.
+* Categories.
+* Inventory.
+* Search.
+* Filters.
+* Product moderation.
+* Storefronts.
+
+## Phase 4 – Commerce
+
+* Cart.
+* Multi-vendor orders.
+* Stripe.
+* Stripe Connect.
+* Commission system.
+* Seller payouts.
+
+## Phase 5 – Fulfilment
+
+* Shipping.
+* Tracking.
+* Returns.
+* Refunds.
+* Order management.
+
+## Phase 6 – Engagement
+
+* Reviews.
+* Wishlist.
+* Controlled messaging.
+* Notifications.
+
+## Phase 7 – Administration
+
+* Full Admin Dashboard.
+* Moderation.
+* Reporting.
+* Analytics.
+* Audit logs.
+
+## Phase 8 – Compliance & Launch
+
+* Security testing.
+* Privacy testing.
+* Safeguarding review.
+* Payment testing.
+* Legal review.
+* Performance testing.
+* Production deployment.
+
+---
+
+# 51. Key Architectural Principle
+
+Tiny Tycoons should never use the public storefront profile as the source of truth for a creator's legal identity.
+
+The architecture should maintain:
+
+**Legal Identity Layer**
+
+↓
+
+**Guardian / Organization Responsibility Layer**
+
+↓
+
+**Financial & Verification Layer**
+
+↓
+
+**Public Store Identity Layer**
+
+↓
+
+**Product & Commerce Layer**
+
+This separation allows Tiny Tycoons to provide a normal e-commerce experience to customers while protecting young creators behind the marketplace.
+
+---
+
+# 52. Final Product Definition
+
+**Tiny Tycoons is a custom-built, UK-first multi-vendor marketplace where children and students can turn their creativity into real entrepreneurial experiences by selling original products through their own public-facing brands, under responsible parent, guardian, school, or organizational supervision.**
+
+Customers discover and purchase products from brands such as:
+
+**CRK Jewelers**
+
+rather than being presented with the private identity of the child behind the brand.
+
+Tiny Tycoons will provide the technology required for:
+
+**Creation → Branding → Selling → Payments → Fulfilment → Learning**
+
+while maintaining privacy, responsible supervision, marketplace safety, and scalable commerce infrastructure.
+
+The long-term vision is to establish Tiny Tycoons as a global marketplace for the next generation of creators and entrepreneurs.
+
+**Big Ideas. Young Creators. Tiny Tycoons.**
