@@ -1,0 +1,375 @@
+{
+  "users": [
+    {
+      "id": "489bf6be-67a4-4a88-b3ec-54d08159857e",
+      "email": "admin@tinytycoons.test",
+      "passwordHash": "$2a$12$Xrmye4nMgwfiQABhx7MjZOR7pSH4SAg0VljiTFIs8tORmoqrsFL8K",
+      "name": "Platform Admin",
+      "isAdmin": true,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "be030862-a0cd-489d-9595-4fd869f9dbf1",
+      "email": "buyer@tinytycoons.test",
+      "passwordHash": "$2a$12$RgTTKCIC5p3xh3FRxdC6zOawMVRc99kK21Cj2JoYNwj.NPqyAPH22",
+      "name": "Bella Buyer",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "2cf3ce79-b3e0-4838-97de-3657115539af",
+      "email": "guardian@tinytycoons.test",
+      "passwordHash": "$2a$12$qBjwoXZFbxshSbz5G/SIT.39UvBFDMKdFk391hpCjsktwv4yxvcq.",
+      "name": "Grace Guardian",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "371d8fc4-5cc3-47d8-bb8c-0d2e6724ee64",
+      "email": "saban@tinytycoons.test",
+      "passwordHash": "$2a$12$n/.U85lnOd7swK8u4Ums1eMwp4Xfh.v8tmgOJ84TKjsAa/KJzdVSG",
+      "name": "Saban",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "79a95298-b3bd-4d9d-b0ca-88e991ef6a5a",
+      "email": "coordinator@younghigh.test",
+      "passwordHash": "$2a$12$x5Wzz/FejSp2x9jU4Cp9/u3M5a8N0Sqx1XfC5jZu6wxESUJbAmsoW",
+      "name": "Young High Coordinator",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "45288b2f-122d-4fc8-a2bf-ece5e3ac0311",
+      "email": "pushp.kumar@gmail.com",
+      "passwordHash": "$2a$12$oRc0F9xYhN0bG9SgHHROGesMLyYSVrDduIvzKQOeqejg45tOXa8SC",
+      "name": "Pushp Kumar",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T13:34:14.542Z"
+    },
+    {
+      "id": "10df9d22-f644-46dc-abf2-457335d401ff",
+      "email": "sonika.rk82@gmail.com",
+      "passwordHash": "$2a$12$oRc0F9xYhN0bG9SgHHROGesMLyYSVrDduIvzKQOeqejg45tOXa8SC",
+      "name": "Shoni",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T15:44:09.867Z"
+    },
+    {
+      "id": "d69241c4-5bb8-466f-9484-14734dec644c",
+      "email": "sheelasheetalpropertiesltd@gmail.com",
+      "passwordHash": "$2a$12$GOSBiPWBd.1L2.57STepEOeBYIw/ECRa4t8PqzPYfkogut6VnrTCK",
+      "name": "Sonika",
+      "isAdmin": false,
+      "createdAt": "2026-10-01T15:44:09.867Z"
+    }
+  ],
+  "guardianRelationships": [
+    {
+      "id": "d09609a9-4438-42b4-a1c7-c239273b7c01",
+      "guardianUserId": "2cf3ce79-b3e0-4838-97de-3657115539af",
+      "creatorUserId": "371d8fc4-5cc3-47d8-bb8c-0d2e6724ee64",
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "33ba7d34-fac5-47bc-9566-f00f93b7e3d1",
+      "guardianUserId": "d69241c4-5bb8-466f-9484-14734dec644c",
+      "creatorUserId": "10df9d22-f644-46dc-abf2-457335d401ff",
+      "createdAt": "2026-10-01T15:44:09.867Z"
+    }
+  ],
+  "guardianConsents": [
+    {
+      "id": "c1c7ce2d-4ab4-473c-8b99-9581d9fabe24",
+      "guardianUserId": "2cf3ce79-b3e0-4838-97de-3657115539af",
+      "creatorUserId": "371d8fc4-5cc3-47d8-bb8c-0d2e6724ee64",
+      "consentType": "SELLER_REGISTRATION",
+      "version": "1.0",
+      "ipAddress": "seed",
+      "status": "GRANTED",
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "8145367e-3884-4b32-8c25-19d0a4571412",
+      "guardianUserId": "d69241c4-5bb8-466f-9484-14734dec644c",
+      "creatorUserId": "10df9d22-f644-46dc-abf2-457335d401ff",
+      "consentType": "SELLER_REGISTRATION",
+      "version": "1.0",
+      "ipAddress": "::1",
+      "status": "GRANTED",
+      "createdAt": "2026-10-01T15:44:09.867Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "5d3af8f0-3a64-4d5f-8feb-ecf143cee395",
+      "name": "Jewelry & Accessories",
+      "slug": "jewelry-accessories"
+    },
+    {
+      "id": "bddca0fa-0323-4464-b50e-2c17c4c869db",
+      "name": "Art & Crafts",
+      "slug": "art-crafts"
+    },
+    {
+      "id": "7afc2c0a-a1d1-461a-8d43-0adc7f32839b",
+      "name": "Baked Goods",
+      "slug": "baked-goods"
+    }
+  ],
+  "stores": [
+    {
+      "id": "0e0b74ad-33e5-4798-87ae-9d24bfafedf9",
+      "ownerUserId": "371d8fc4-5cc3-47d8-bb8c-0d2e6724ee64",
+      "guardianUserId": "2cf3ce79-b3e0-4838-97de-3657115539af",
+      "type": "INDIVIDUAL",
+      "name": "CRK Jewelers",
+      "slug": "crk-jewelers",
+      "description": "Handmade beaded jewelry crafted by a young entrepreneur.",
+      "status": "APPROVED",
+      "commissionRateOverride": null,
+      "stripeAccountId": null,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "8f4231ca-9d9f-4488-9ad2-c57a3db72cc2",
+      "ownerUserId": "79a95298-b3bd-4d9d-b0ca-88e991ef6a5a",
+      "guardianUserId": null,
+      "type": "ORGANIZATION",
+      "name": "Young Canvas",
+      "slug": "young-canvas",
+      "description": "Student art collective from Young High School.",
+      "status": "APPROVED",
+      "commissionRateOverride": null,
+      "stripeAccountId": null,
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "2f2f2cb5-019f-4cbe-ab29-1d08ddd5b9a4",
+      "ownerUserId": "10df9d22-f644-46dc-abf2-457335d401ff",
+      "guardianUserId": "d69241c4-5bb8-466f-9484-14734dec644c",
+      "type": "INDIVIDUAL",
+      "name": "Beaded Bliss By Shoni",
+      "slug": "beaded-bliss-by-shoni",
+      "description": "",
+      "status": "APPROVED",
+      "commissionRateOverride": null,
+      "stripeAccountId": null,
+      "createdAt": "2026-10-01T15:44:09.867Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "aad6f136-244a-4c39-b66b-8e68abf083fb",
+      "storeId": "0e0b74ad-33e5-4798-87ae-9d24bfafedf9",
+      "title": "Beaded Sunset Bracelet",
+      "slug": "beaded-sunset-bracelet",
+      "description": "A handmade beaded bracelet in warm sunset colors.",
+      "priceCents": 1200,
+      "stock": 25,
+      "categoryId": "5d3af8f0-3a64-4d5f-8feb-ecf143cee395",
+      "images": [],
+      "status": "APPROVED",
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "dff762da-4f89-4cf1-b151-75851854d0ba",
+      "storeId": "0e0b74ad-33e5-4798-87ae-9d24bfafedf9",
+      "title": "Ocean Wave Earrings",
+      "slug": "ocean-wave-earrings",
+      "description": "Blue and white beaded earrings inspired by ocean waves.",
+      "priceCents": 900,
+      "stock": 15,
+      "categoryId": "5d3af8f0-3a64-4d5f-8feb-ecf143cee395",
+      "images": [],
+      "status": "APPROVED",
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "c7946f97-0b43-4094-a0bd-b61a755b015c",
+      "storeId": "8f4231ca-9d9f-4488-9ad2-c57a3db72cc2",
+      "title": "Watercolor Postcard Set",
+      "slug": "watercolor-postcard-set",
+      "description": "Set of 5 original watercolor postcards painted by students.",
+      "priceCents": 1500,
+      "stock": 6,
+      "categoryId": "bddca0fa-0323-4464-b50e-2c17c4c869db",
+      "images": [],
+      "status": "APPROVED",
+      "createdAt": "2026-10-01T10:35:59.192Z"
+    },
+    {
+      "id": "03ff7570-38da-4e55-92e0-df6951885c47",
+      "storeId": "2f2f2cb5-019f-4cbe-ab29-1d08ddd5b9a4",
+      "title": "Handmade Sage green Bracelet",
+      "slug": "handmade-sage-green-bracelet",
+      "description": "Sparkly handmade bracelet by 11 yo.",
+      "priceCents": 100,
+      "stock": 9,
+      "categoryId": "5d3af8f0-3a64-4d5f-8feb-ecf143cee395",
+      "images": [
+        "https://pixabay.com/images/download/starbright-druzy-665486_1920.jpg"
+      ],
+      "status": "APPROVED",
+      "createdAt": "2026-10-01T15:47:52.009Z"
+    },
+    {
+      "id": "146b4fbb-eafb-4c35-a770-34a381429b28",
+      "storeId": "2f2f2cb5-019f-4cbe-ab29-1d08ddd5b9a4",
+      "title": "Sage Green Bracelet by Shoni",
+      "slug": "sage-green-bracelet-by-shoni",
+      "description": "Sage Green Bracelet by Shoni\r\n1.) Homemade\r\n2.) Sparkly",
+      "priceCents": 100,
+      "stock": 10,
+      "categoryId": "5d3af8f0-3a64-4d5f-8feb-ecf143cee395",
+      "images": [
+        "/product_images/1790936857698-96977bad-sage-green-bracelet.jpg"
+      ],
+      "status": "APPROVED",
+      "createdAt": "2026-10-02T10:27:37.737Z"
+    }
+  ],
+  "carts": {
+    "45288b2f-122d-4fc8-a2bf-ece5e3ac0311": [
+      {
+        "productId": "03ff7570-38da-4e55-92e0-df6951885c47",
+        "qty": 1
+      }
+    ]
+  },
+  "orders": [
+    {
+      "id": "5cf8f976-539f-4c0f-b8ba-93df095c6d54",
+      "buyerUserId": "45288b2f-122d-4fc8-a2bf-ece5e3ac0311",
+      "createdAt": "2026-10-01T13:39:54.938Z",
+      "status": "PENDING_PAYMENT",
+      "totalCents": 3000,
+      "paymentIntentId": "pi_3ULkDHECMyJeVO3l1QArlTSU",
+      "shippingAddress": "",
+      "sellerOrderIds": [
+        "2160a39f-6fda-41dd-bc5a-ef24c25d5eff"
+      ]
+    },
+    {
+      "id": "8827d542-16ea-41a0-892b-434ed42dc6b6",
+      "buyerUserId": "45288b2f-122d-4fc8-a2bf-ece5e3ac0311",
+      "createdAt": "2026-10-01T13:40:14.003Z",
+      "status": "PENDING_PAYMENT",
+      "totalCents": 1500,
+      "paymentIntentId": "pi_3ULkDaECMyJeVO3l0l1xcjgw",
+      "shippingAddress": "",
+      "sellerOrderIds": [
+        "fa0d04ea-65b8-4ab6-9466-8a4c97dd3cc7"
+      ]
+    },
+    {
+      "id": "58619ee2-0e30-47f6-b036-41a40f89f5ac",
+      "buyerUserId": "45288b2f-122d-4fc8-a2bf-ece5e3ac0311",
+      "createdAt": "2026-10-01T14:27:53.248Z",
+      "status": "PENDING_PAYMENT",
+      "totalCents": 1500,
+      "paymentIntentId": "pi_3ULkxhECMyJeVO3l0U1Z1Dca",
+      "shippingAddress": "#27 Greenway Close \nUnited Kingdom",
+      "sellerOrderIds": [
+        "8af4327b-2f80-4671-ba8f-d44f5467ca8b"
+      ]
+    },
+    {
+      "id": "72403464-7406-40fc-92c5-ba9b94a924bf",
+      "buyerUserId": "45288b2f-122d-4fc8-a2bf-ece5e3ac0311",
+      "createdAt": "2026-10-01T16:05:14.106Z",
+      "status": "PENDING_PAYMENT",
+      "totalCents": 100,
+      "paymentIntentId": "pi_3ULmTuECMyJeVO3l1XVrfTqC",
+      "shippingAddress": "Buckingham Palace",
+      "sellerOrderIds": [
+        "8043e169-4b0a-451f-812d-b64d62145963"
+      ]
+    }
+  ],
+  "sellerOrders": [
+    {
+      "id": "2160a39f-6fda-41dd-bc5a-ef24c25d5eff",
+      "orderId": "5cf8f976-539f-4c0f-b8ba-93df095c6d54",
+      "storeId": "8f4231ca-9d9f-4488-9ad2-c57a3db72cc2",
+      "status": "AWAITING_PAYMENT",
+      "items": [
+        {
+          "productId": "c7946f97-0b43-4094-a0bd-b61a755b015c",
+          "title": "Watercolor Postcard Set",
+          "priceCents": 1500,
+          "qty": 2
+        }
+      ],
+      "subtotalCents": 3000,
+      "commissionCents": 300,
+      "payoutCents": 2700,
+      "transferId": null,
+      "createdAt": "2026-10-01T13:39:54.938Z"
+    },
+    {
+      "id": "fa0d04ea-65b8-4ab6-9466-8a4c97dd3cc7",
+      "orderId": "8827d542-16ea-41a0-892b-434ed42dc6b6",
+      "storeId": "8f4231ca-9d9f-4488-9ad2-c57a3db72cc2",
+      "status": "AWAITING_PAYMENT",
+      "items": [
+        {
+          "productId": "c7946f97-0b43-4094-a0bd-b61a755b015c",
+          "title": "Watercolor Postcard Set",
+          "priceCents": 1500,
+          "qty": 1
+        }
+      ],
+      "subtotalCents": 1500,
+      "commissionCents": 150,
+      "payoutCents": 1350,
+      "transferId": null,
+      "createdAt": "2026-10-01T13:40:14.003Z"
+    },
+    {
+      "id": "8af4327b-2f80-4671-ba8f-d44f5467ca8b",
+      "orderId": "58619ee2-0e30-47f6-b036-41a40f89f5ac",
+      "storeId": "8f4231ca-9d9f-4488-9ad2-c57a3db72cc2",
+      "status": "AWAITING_PAYMENT",
+      "items": [
+        {
+          "productId": "c7946f97-0b43-4094-a0bd-b61a755b015c",
+          "title": "Watercolor Postcard Set",
+          "priceCents": 1500,
+          "qty": 1
+        }
+      ],
+      "subtotalCents": 1500,
+      "commissionCents": 150,
+      "payoutCents": 1350,
+      "transferId": null,
+      "createdAt": "2026-10-01T14:27:53.248Z"
+    },
+    {
+      "id": "8043e169-4b0a-451f-812d-b64d62145963",
+      "orderId": "72403464-7406-40fc-92c5-ba9b94a924bf",
+      "storeId": "2f2f2cb5-019f-4cbe-ab29-1d08ddd5b9a4",
+      "status": "AWAITING_PAYMENT",
+      "items": [
+        {
+          "productId": "03ff7570-38da-4e55-92e0-df6951885c47",
+          "title": "Handmade Sage green Bracelet",
+          "priceCents": 100,
+          "qty": 1
+        }
+      ],
+      "subtotalCents": 100,
+      "commissionCents": 10,
+      "payoutCents": 90,
+      "transferId": null,
+      "createdAt": "2026-10-01T16:05:14.106Z"
+    }
+  ],
+  "returns": [],
+  "conversations": [],
+  "messages": [],
+  "commissionConfig": {
+    "rate": 0.1
+  }
+}

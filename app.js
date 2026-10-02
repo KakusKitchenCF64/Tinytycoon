@@ -27,6 +27,7 @@ const jwt = require('jsonwebtoken');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const Stripe = require('stripe');
+const multer = require('multer');
 
 // ============================================================================
 // ENV LOADING (no dotenv dependency — tiny manual .env parser)
@@ -79,6 +80,10 @@ if (!stripe) {
 
 const COOKIE_NAME = 'tt_token';
 const DATA_FILE = path.join(__dirname, 'data.json');
+const PRODUCT_IMAGES_DIR = path.join(__dirname, 'product_images');
+if (!fs.existsSync(PRODUCT_IMAGES_DIR)) {
+  fs.mkdirSync(PRODUCT_IMAGES_DIR, { recursive: true });
+}
 
 // ============================================================================
 // SMALL UTILITIES
@@ -310,6 +315,7 @@ app.use(
 );
 app.use(cookieParser());
 app.use(morganLite());
+app.use('/product_images', express.static(PRODUCT_IMAGES_DIR));
 
 // Stripe webhook needs the RAW body for signature verification, so it must be
 // registered before any body-parsing middleware that would consume the stream.
@@ -2613,34 +2619,101 @@ sellerRouter.get('/products', ah(async (req, res) => {
   renderPage(req, res, { title: 'Products', body });
 }));
 
+const imageStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, PRODUCT_IMAGES_DIR);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const safeBase = slugify(path.basename(file.originalname, ext)).slice(0, 30) || 'image';
+    const unique = `${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
+    cb(null, `${unique}-${safeBase}${ext}`);
+  },
+});
+
+const uploadProductImage = multer({
+  storage: imageStorage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    if (allowed.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid image type. Please upload a JPG, PNG, WebP, or GIF image.'));
+    }
+  },
+});
+
+function handleProductImageUpload(req, res, next) {
+  uploadProductImage.single('imageFile')(req, res, (err) => {
+    if (err) {
+      const msg =
+        err instanceof multer.MulterError && err.code === 'LIMIT_FILE_SIZE'
+          ? 'Uploaded image must be under 5MB.'
+          : (err.message || 'Image upload failed.');
+      const redirectTarget = req.params && req.params.id
+        ? `/dashboard/seller/products/${req.params.id}/edit`
+        : '/dashboard/seller/products/new';
+      return res.redirect(flashUrl(redirectTarget, 'error', msg));
+    }
+    next();
+  });
+}
+
 function productFormFields(p) {
   const categoryOptions = db.categories.map((c) => `<option value="${h(c.id)}" ${p && p.categoryId === c.id ? 'selected' : ''}>${h(c.name)}</option>`).join('');
+  const currentImage = p && p.images && p.images[0] ? p.images[0] : null;
   return `
     <div class="form-group"><label>Title</label><input type="text" name="title" required maxlength="120" value="${p ? h(p.title) : ''}"></div>
     <div class="form-group"><label>Description</label><textarea name="description" required maxlength="1000">${p ? h(p.description) : ''}</textarea></div>
     <div class="form-group"><label>Price (£)</label><input type="number" name="price" step="0.01" min="0.01" required value="${p ? (p.priceCents / 100).toFixed(2) : ''}"></div>
     <div class="form-group"><label>Stock</label><input type="number" name="stock" min="0" required value="${p ? p.stock : ''}"></div>
     <div class="form-group"><label>Category</label><select name="categoryId" required><option value="">Select...</option>${categoryOptions}</select></div>
-    <div class="form-group"><label>Image URL <span class="hint">(optional)</span></label><input type="url" name="imageUrl" value="${p && p.images[0] ? h(p.images[0]) : ''}"></div>
+    ${
+      currentImage
+        ? `<div class="form-group">
+            <label>Current image</label>
+            <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+              <img src="${h(currentImage)}" alt="Current product image" style="width:72px;height:72px;border-radius:10px;object-fit:cover;border:1px solid var(--border);">
+              <span class="hint">${h(currentImage)}</span>
+            </div>
+          </div>`
+        : ''
+    }
+    <div class="form-group">
+      <label>Upload image from computer</label>
+      <input type="file" name="imageFile" accept="image/png,image/jpeg,image/webp,image/gif">
+      <p class="hint">Supports JPG, PNG, WebP, GIF up to 5MB.</p>
+    </div>
+    <div class="form-group">
+      <label>Or image URL <span class="hint">(optional)</span></label>
+      <input type="text" name="imageUrl" placeholder="https://... or /product_images/..." value="${p && p.images[0] ? h(p.images[0]) : ''}">
+    </div>
   `;
 }
 
 sellerRouter.get('/products/new', ah(async (req, res) => {
-  const body = authFormLayout('New product', `<h1>New product</h1><form method="post" action="/dashboard/seller/products/new">${productFormFields(null)}<button type="submit" class="btn btn-primary">Create (draft)</button></form>`);
+  const body = authFormLayout('New product', `<h1>New product</h1><form method="post" action="/dashboard/seller/products/new" enctype="multipart/form-data">${productFormFields(null)}<button type="submit" class="btn btn-primary">Create (draft)</button></form>`);
   renderPage(req, res, { title: 'New product', body });
 }));
 
-sellerRouter.post('/products/new', ah(async (req, res) => {
+sellerRouter.post('/products/new', handleProductImageUpload, ah(async (req, res) => {
   const { title, description, price, stock, categoryId, imageUrl } = req.body;
   const priceCents = Math.round(parseFloat(price) * 100);
   const stockNum = parseInt(stock, 10);
   if (!title || !description || isNaN(priceCents) || priceCents <= 0 || isNaN(stockNum) || stockNum < 0 || !getCategoryById(categoryId)) {
     return res.redirect(flashUrl('/dashboard/seller/products/new', 'error', 'Please fill in all fields with valid values.'));
   }
+  let finalImage = null;
+  if (req.file) {
+    finalImage = `/product_images/${req.file.filename}`;
+  } else if (imageUrl && imageUrl.trim()) {
+    finalImage = imageUrl.trim();
+  }
   const slug = uniqueSlug(slugify(title), db.products.map((p) => p.slug));
   db.products.push({
     id: uuid(), storeId: req.store.id, title, slug, description, priceCents, stock: stockNum, categoryId,
-    images: imageUrl ? [imageUrl] : [], status: 'DRAFT', createdAt: new Date().toISOString(),
+    images: finalImage ? [finalImage] : [], status: 'DRAFT', createdAt: new Date().toISOString(),
   });
   persist();
   res.redirect(flashUrl('/dashboard/seller/products', 'success', 'Product created as a draft.'));
@@ -2649,11 +2722,11 @@ sellerRouter.post('/products/new', ah(async (req, res) => {
 sellerRouter.get('/products/:id/edit', ah(async (req, res) => {
   const p = getProductById(req.params.id);
   if (!p || p.storeId !== req.store.id) throw new HttpError(404, 'Product not found');
-  const body = authFormLayout('Edit product', `<h1>Edit product</h1><form method="post" action="/dashboard/seller/products/${h(p.id)}/edit">${productFormFields(p)}<button type="submit" class="btn btn-primary">Save</button></form>`);
+  const body = authFormLayout('Edit product', `<h1>Edit product</h1><form method="post" action="/dashboard/seller/products/${h(p.id)}/edit" enctype="multipart/form-data">${productFormFields(p)}<button type="submit" class="btn btn-primary">Save</button></form>`);
   renderPage(req, res, { title: 'Edit product', body });
 }));
 
-sellerRouter.post('/products/:id/edit', ah(async (req, res) => {
+sellerRouter.post('/products/:id/edit', handleProductImageUpload, ah(async (req, res) => {
   const p = getProductById(req.params.id);
   if (!p || p.storeId !== req.store.id) throw new HttpError(404, 'Product not found');
   const { title, description, price, stock, categoryId, imageUrl } = req.body;
@@ -2662,7 +2735,13 @@ sellerRouter.post('/products/:id/edit', ah(async (req, res) => {
   if (!title || !description || isNaN(priceCents) || priceCents <= 0 || isNaN(stockNum) || stockNum < 0 || !getCategoryById(categoryId)) {
     return res.redirect(flashUrl(`/dashboard/seller/products/${p.id}/edit`, 'error', 'Please fill in all fields with valid values.'));
   }
-  Object.assign(p, { title, description, priceCents, stock: stockNum, categoryId, images: imageUrl ? [imageUrl] : [] });
+  let finalImage = p.images && p.images[0] ? p.images[0] : null;
+  if (req.file) {
+    finalImage = `/product_images/${req.file.filename}`;
+  } else if (imageUrl !== undefined && imageUrl.trim()) {
+    finalImage = imageUrl.trim();
+  }
+  Object.assign(p, { title, description, priceCents, stock: stockNum, categoryId, images: finalImage ? [finalImage] : [] });
   persist();
   res.redirect(flashUrl('/dashboard/seller/products', 'success', 'Product updated.'));
 }));
